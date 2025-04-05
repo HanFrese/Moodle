@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Zyklustag</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 1.5em;
+      padding: 2em;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div id="zyklustag">Zyklustag wird geladen...</div>
+  <script>
+    const startDate = new Date('2025-03-25'); // Hier das Startdatum anpassen
+    const today = new Date();
+    const diffTime = today.setHours(0,0,0,0) - startDate.setHours(0,0,0,0);
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24)) + 1;
+    const output = diffDays > 0 
+      ? 'Zyklustag: ' + diffDays 
+      : 'Zyklus beginnt am: ' + startDate.toLocaleDateString();
+    document.getElementById('zyklustag').innerText = output;
+  </script>
+</body>
+</html>
